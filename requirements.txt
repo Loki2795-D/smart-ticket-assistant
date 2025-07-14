@@ -1,1 +1,3 @@
-"streamlit\nopenai" 
+streamlit
+openai
+python-dotenv
