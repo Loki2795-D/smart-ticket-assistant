@@ -7,11 +7,11 @@ from openai import OpenAI
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 st.set_page_config(
-    page_title="ANB Assist - Smart Summary Bot",
-    page_icon="anb_logo.png",  # Your uploaded logo file
+    page_title="ANB Assist- Smart Chat",
     layout="wide"
 )
 
+# CSS and layout
 st.markdown("""
     <style>
         .big-font { font-size: 18px !important; }
@@ -19,7 +19,16 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("ANB Assist- Smart Chat")
+# Display logo and title side-by-side
+st.markdown(
+    """
+    <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="anb_logo.png" width="50" style="margin-top: -10px;" />
+        <h1 style="margin: 0; font-size: 32px;">ANB Assist – Smart Chat</h1>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Initialize chat history
 if "messages" not in st.session_state:
