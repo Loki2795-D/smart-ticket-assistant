@@ -7,9 +7,9 @@ from openai import OpenAI
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 st.set_page_config(
-    page_title="ANB Assist- Smart Chat",
-    layout="wide",
-    page_icon="📝"  # You can replace with your desired emoji
+    page_title="ANB Assist - Smart Summary Bot",
+    page_icon="anb_logo.png",  # Your uploaded logo file
+    layout="wide"
 )
 
 st.markdown("""
