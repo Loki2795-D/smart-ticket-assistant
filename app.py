@@ -23,8 +23,8 @@ st.markdown("""
 st.markdown(
     """
     <div style="display: flex; align-items: center; gap: 10px;">
-        <img src="anb_logo.png" width="50" style="margin-top: -10px;" />
-        <h1 style="margin: 0; font-size: 32px;">ANB Assist – Smart Chat</h1>
+        <img src="anb_logo.png" width="45" style="margin-top: -10px;" />
+        <h1 style="margin: 0; font-size: 28px;">ANB Assist – Smart Chat</h1>
     </div>
     """,
     unsafe_allow_html=True
