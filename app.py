@@ -7,7 +7,7 @@ from openai import OpenAI
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 st.set_page_config(
-    page_title="ANB Assist- Smart Chat",
+    page_title="Assist- Smart Chat",
     layout="wide"
 )
 
@@ -26,7 +26,7 @@ col1, col2 = st.columns([1, 4])
 with col1:
     st.image("anb_logo.png", width=60)
 with col2:
-    st.markdown("<h1 style='margin: 0; padding-top: 5px;'>ANB Assist – Smart Chat</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='margin: 0; padding-top: 5px;'>Assist – Smart Chat</h1>", unsafe_allow_html=True)
 
 # Initialize chat history
 if "messages" not in st.session_state:
