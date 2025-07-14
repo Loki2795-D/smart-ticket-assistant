@@ -22,9 +22,9 @@ st.markdown("""
 from PIL import Image
 
 # Display logo and title using st.image for compatibility
-col1, col2 = st.columns([1, 5])
+col1, col2 = st.columns([0.15, 1])
 with col1:
-    st.image("anb_logo.png", width=45)
+    st.image("anb_logo.png", width=40)
 with col2:
     st.markdown("<h1 style='margin: 0; padding-top: 8px;'>ANB Assist – Smart Chat</h1>", unsafe_allow_html=True)
 
