@@ -6,7 +6,11 @@ from openai import OpenAI
 # Initialize OpenAI client
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-st.set_page_config(page_title="Smart Ticket Assistant", layout="wide")
+st.set_page_config(
+    page_title="ANB Assist- Smart Chat",
+    layout="wide",
+    page_icon="📝"  # You can replace with your desired emoji
+)
 
 st.markdown("""
     <style>
@@ -15,7 +19,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.title("🧠 Smart Ticket Assistant (Chat Mode)")
+st.title("ANB Assist- Smart Chat")
 
 # Initialize chat history
 if "messages" not in st.session_state:
