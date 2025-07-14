@@ -19,16 +19,14 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Display logo and title side-by-side
-st.markdown(
-    """
-    <div style="display: flex; align-items: center; gap: 10px;">
-        <img src="anb_logo.png" width="45" style="margin-top: -10px;" />
-        <h1 style="margin: 0; font-size: 28px;">ANB Assist – Smart Chat</h1>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+from PIL import Image
+
+# Display logo and title using st.image for compatibility
+col1, col2 = st.columns([1, 5])
+with col1:
+    st.image("anb_logo.png", width=45)
+with col2:
+    st.markdown("<h1 style='margin: 0; padding-top: 8px;'>ANB Assist – Smart Chat</h1>", unsafe_allow_html=True)
 
 # Initialize chat history
 if "messages" not in st.session_state:
