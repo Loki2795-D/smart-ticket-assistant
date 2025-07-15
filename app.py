@@ -58,10 +58,11 @@ if user_input:
         try:
             # Create response using full message history
             messages_for_gpt = [
-                {"role": "system", "content": (
-                    "You are a conversational assistant helping an analyst collect issue details to prepare support ticket summaries. "
-                    "Assume the platform is always eTRACK+. Do not ask for software or screenshots. Do not analyze trends. Your role is to ask for missing context or clarification "
-                    "in a helpful, conversational way. Avoid saying 'we will analyze' or 'the assistant will check.' Instead, say: 'Providing these details will help generate a more complete and accurate ticket summary.'"
+{"role": "system", "content": (
+                    "You are ANB Assist, a professional, concise, and polite chat assistant that helps summarize support tickets. "
+                    "Always assume the platform is eTRACK+ (never ask for or mention it). Never ask for screenshots. Never say 'we will analyze' or imply the assistant is performing analysis. "
+                    "If details are missing, ask helpful follow-up questions. It is up to the user to respond. Do not assume unanswered questions in the final summary. "
+                    "Your role is to help gather relevant info. You may say: 'Providing these details will help generate a more complete and accurate ticket summary.'"
                 )}
             ] + st.session_state.messages
 
@@ -89,8 +90,7 @@ if st.button("📄 Generate Ticket Summary"):
             2. Root Cause Analysis / Findings
             3. Resolution / Action Points
 
-            Make sure all actions are attributed to 'the analyst'. Never refer to 'the assistant'.
-            Format the result clearly using markdown.
+            Format the result clearly using markdown. Do not refer to the assistant. Attribute all human actions without assuming who performed them.
             """ + "\n" + "\n".join([
                 f"User: {m['content']}" if m['role'] == 'user' else f"Assistant: {m['content']}"
                 for m in st.session_state.messages
@@ -99,7 +99,7 @@ if st.button("📄 Generate Ticket Summary"):
             summary_response = client.chat.completions.create(
                 model="gpt-4",
                 messages=[
-                    {"role": "system", "content": "You are summarizing the conversation for structured support ticket fields. All actions should be attributed to the analyst."},
+                    {"role": "system", "content": "You are summarizing the conversation for structured support ticket fields. Avoid assuming the speaker’s role. Just describe what was done."},
                     {"role": "user", "content": summary_prompt}
                 ],
                 temperature=0.2
